@@ -1,0 +1,28 @@
+{
+  "name": "moon-contrib-user-rememberme",
+  "version": "0.0.2",
+  "author": "Illniyar",
+  "description": "remember me functionality with moon-contrib-user",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Illniyar/moon-contrib-user-rememberme"
+  },
+  "licenses": {
+    "type": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  },
+  "homepage": "https://github.com/Illniyar/moon-contrib-user-rememberme",
+  "dependencies":{
+  },
+  "peerDependencies": {
+    "moonshine-js":"*",
+    "moon-contrib-user":"*"
+  },
+  "devDependencies": {
+    "moonshine-js":"*",
+    "moon-contrib-user":"*"
+  },
+  "moonApps": [
+    "moon-contrib-user"
+  ]
+}
