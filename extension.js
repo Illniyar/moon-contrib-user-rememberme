@@ -5,7 +5,7 @@ var moonshine = require("moonshine-js"),
 
 
 
-module.exports.pre = function(cb){
+module.exports.setup = function(cb){
     moonshine.user.rememberme = {
         shouldRemember: DefaultShouldRemember
     }
@@ -59,7 +59,7 @@ function addNewToken(user,res,prevToken,cb) {
             updateClause.$unset = {}
             updateClause.$unset[settings.USER_REMEMBERME_MODEL_TOKENS_KEYNAME + "." + prevToken] = true
         }
-        moonshine.persistence.models.User.update({_id:user.id},updateClause,{strict:false},function(err) {
+        moonshine.db.models.User.update({_id:user.id},updateClause,{strict:false},function(err) {
             if (err) {
                 logger.error("error while updating user token",err,{token:token,user:user.id})
                 cb(err)
@@ -102,7 +102,7 @@ function authenticateUserFromToken(req,res,cb) {
     if (token) {
         var tokenCheckClause = {_id: token.user}
         tokenCheckClause[settings.USER_REMEMBERME_MODEL_TOKENS_KEYNAME + "." + token.token] ={$exists:true}
-        moonshine.persistence.models.User.findOne(tokenCheckClause,function(err,user){
+        moonshine.db.models.User.findOne(tokenCheckClause,function(err,user){
             if (err) {
                 logger.error("got error trying to login user with token",err,{user:token.user,token:token.token})
                 return cb()

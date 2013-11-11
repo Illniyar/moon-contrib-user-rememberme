@@ -1,6 +1,6 @@
 {
   "name": "moon-contrib-user-rememberme",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Illniyar",
   "description": "remember me functionality with moon-contrib-user",
   "repository": {
@@ -21,8 +21,5 @@
   "devDependencies": {
     "moonshine-js":"*",
     "moon-contrib-user":"*"
-  },
-  "moonApps": [
-    "moon-contrib-user"
-  ]
+  }
 }
