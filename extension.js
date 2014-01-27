@@ -88,7 +88,7 @@ function logoutRemoveRM() {
         var user = this[settings.USER_REQUEST_PROPERTY_NAME]
         if (user.id == token.user) {
             var updateClause = {}
-            updateClause[USER_REMEMBERME_MODEL_TOKENS_KEYNAME + ".$." + token.token] = 1
+            updateClause[settings.USER_REMEMBERME_MODEL_TOKENS_KEYNAME + ".$." + token.token] = 1
             user.update({$unset:updateClause},function(err){
                 logger.error("failed to delete token after user loggedout",err,{user:user.id,token:token})
             })
